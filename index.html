@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taqi AlSharifi vCard</title>
+  <style>
+/* Import fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@300;400&family=Dancing+Script:wght@500&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+body {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, 
+    #3498db 0%,      /* bright blue (top-left) */
+    #5dade2 40%,     /* softer blue mid */
+    #f1c40f 85%,     /* rich gold */
+    #f9e79f 100%     /* pale gold (bottom-right) */
+  );
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+.card {
+  background: linear-gradient(145deg, #ffffff, #fffbea); /* white → light gold */
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 420px;
+  width: 100%;
+  margin: auto;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  border: 2px solid #3498db; /* bright blue border */
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+} 
+    
+    .links a#mail {
+  background: #007bff; 
+      color: #fff;
+}
+    
+    .avatar-container {
+      position: relative;
+      margin: 0 auto 20px;
+      width: 110px;
+      height:110px;
+    }
+    
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .avatar-container::after {
+      content: '';
+      position: absolute;
+      top: -7px;
+      left: -7px;
+      right: -7px;
+      bottom: -7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #007bff, #128C7E);
+      z-index: -1;
+    }
+    
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 26px;
+      margin-bottom: 5px;
+      color: #2c3e50;
+    }
+    
+    .role {
+       color: #7f8c8d;
+      margin-bottom: 25px;
+      line-height: 1.5;
+      font-size: 15px;
+    }
+    
+    .bio {
+      color: #000080;
+      margin-bottom: 25px;
+      line-height: 1.5;
+      font-size: 15px;
+    }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #ddd, transparent);
+      margin: 20px 0;
+    }
+    
+    .links a, .links button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 12px 0;
+      padding: 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+    
+    .links a:hover, .links button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .links a:active, .links button:active {
+      transform: translateY(0);
+    }
+    
+    .links i {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+    
+    .links a#whatsapp { 
+      background: #25d366; 
+      color: #fff;
+       
+    }
+    
+    .links a#call { 
+      background: #007bff; 
+      color: #fff;
+      
+    }
+    
+.links a#maps {
+  background: #007bff;
+  color: #fff;
+  white-space: nowrap;  
+       
+  /* one line only */
+}
+    
+    .links a#site { 
+      background: #007bff; 
+      color: #fff;
+       
+    }
+    
+    .links button { 
+      background: red; 
+  color: #fff;
+  text-align: center;
+  /* one line only */
+
+    }
+
+ .company {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-weight: bold;
+  /* remove nowrap and ellipsis */
+     white-space: normal;     /* يسمح بالنزول لسطر جديد */
+    text-overflow: unset;    /* يلغي الـ ... */
+    overflow: visible;       /* يعرض النص كامل */
+   text-align: center;
+}
+    
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .card {
+        padding: 20px;
+      }
+      
+      .h1 {
+        font-size: 17px;
+      }
+      
+      .role {
+        font-size: 15px;
+      
+    }
+}
+
+@media (max-width: 480px) {
+  .bio {
+    font-size: 13px;   /* smaller font on small phones */
+    line-height: 1.4;  /* tighter spacing */
+    margin-bottom: 20px; /* adjust spacing */
+  }
+}
+
+
+@media (max-width: 480px) {
+  .links a#site,
+  .links a#maps,
+  .links a#call,
+  .links a#whatsapp,
+  .links a#mail,
+  .links button {
+    font-size: 13px;       /* slightly smaller on phones */
+       white-space: normal;     /* يسمح بالنزول لسطر جديد */
+    text-overflow: unset;    /* يلغي الـ ... */
+    overflow: visible;       /* يعرض النص كامل */
+    
+
+  }
+}
+  @media (max-width: 480px) {
+  .company{
+    font-size: 16px;   /* smaller font on phones */
+       white-space: normal;     /* يسمح بالنزول لسطر جديد */
+    text-overflow: unset;    /* يلغي الـ ... */
+    overflow: visible;       /* يعرض النص كامل */
+
+  }}
+
+
+    
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="card">
+    <div class="avatar-container">
+     <img src="assets/avatar.png" alt="avatar" class="avatar">
+    </div>
+    
+    <h1 id="name">Taqi AlSharifi</h1>
+    <p class="role" id="role">General Manager</p>
+     <div class="divider"></div>
+  <p class="company" id="company">ALNAKHUDA LOGISTICS SERVICES</p>
+
+    <p class="bio" id="bio">Go for Quality – We Take Care of the Rest!</p>
+    
+    <div class="divider"></div>
+    
+    <div class="links">
+      <a id="whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a id="call">
+        <i class="fas fa-phone"></i> +97337137007
+      </a>
+      
+  <a id="call">
+        <i class="fas fa-phone"></i> +97333134145
+      </a>
+
+
+       <a id="mail" target="_blank">
+    <i class="fas fa-envelope"></i> taqi@alnakhuda.net
+  </a>
+      
+      
+      <a id="maps" target="_blank">
+        <i class="fas fa-map-marker-alt"></i> Hidd, Muharraq Governorate, Bahrain
+      </a>
+      <a id="site" target="_blank">
+        <i class="fas fa-globe"></i> www.alnakhuda.com
+      </a>
+      <button id="saveContact">
+        <i class="fas fa-address-card"></i> Save Contact
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const SETTINGS = {
+      name: "Taqi AlSharifi",
+      role: "General Manager",
+      bio: "Go for Quality – We Take Care of the Rest!",
+      phone: "+97337137007",
+phone: "+97333134145",
+      whatsappNumber: "+97337137007",
+      whatsappMessage: "Hello",
+      mapsUrl: "https://maps.app.goo.gl/Ho47xQraBpJeNtzP7",
+      siteUrl: "https://www.alnakhuda.com",
+      vcf: {
+        
+        fullName: "Taqi AlSharifi",
+        org: "ALNAKHUDA LOGISTICS SERVICES",
+        title: "General Manager",
+        phone: "+97333134145",
+        phone: "+97337907007",
+        mapsUrl: "https://maps.app.goo.gl/Ho47xQraBpJeNtzP7",
+        email: "taqi@alnakhuda.net",
+        url: "www.alnakhuda.com"
+      }
+    };
+
+    document.getElementById('name').textContent = SETTINGS.name;
+    document.getElementById('role').textContent = SETTINGS.role;
+    document.getElementById('bio').textContent = SETTINGS.bio;
+document.getElementById('mail').href = `mailto:${SETTINGS.vcf.email}`;
+    document.getElementById('whatsapp').href =
+      `https://wa.me/${SETTINGS.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(SETTINGS.whatsappMessage)}`;
+    document.getElementById('call').href = `tel:${SETTINGS.phone}`;
+    document.getElementById('maps').href = SETTINGS.mapsUrl;
+    document.getElementById('site').href = SETTINGS.siteUrl;
+
+    document.getElementById('saveContact').addEventListener('click', () => {
+      const v = SETTINGS.vcf;
+
+// Split full name into first and last
+const nameParts = v.fullName.trim().split(" ");
+const firstName = nameParts.slice(0, -1).join(" ") || v.fullName; // all except last
+const lastName = nameParts.slice(-1).join(""); // last word
+
+// Build vCard
+const vcard = [
+  'BEGIN:VCARD',
+  'VERSION:3.0',
+  `N:${lastName};${firstName};;;`,   // Last;First;;;
+  `FN:${v.fullName}`,                // Full name
+  `ORG:${v.org}`,
+  `TITLE:${v.title}`,
+  `TEL;TYPE=CELL:${v.phone}`,
+  `EMAIL;TYPE=INTERNET:${v.email}`,
+  `URL:${v.url}`,
+  'END:VCARD'
+].join('\n');
+      const blob = new Blob([vcard], { type: 'text/vcard' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${v.fullName.replace(/\s+/g, '_')}.vcf`;
+      document.body.appendChild(a);
+      a.click();
+      URL.revokeObjectURL(url);
+      a.remove();
+      
+      // Provide user feedback
+      const btn = document.getElementById('saveContact');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Contact Saved!';
+      btn.style.background = '#2ecc71';
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
