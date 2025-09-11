@@ -165,6 +165,12 @@ body {
        
     }
     
+    .links a#info-mail { 
+      background: #007bff; 
+      color: #fff;
+       
+    }
+    
     .links button { 
       background: red; 
   color: #fff;
@@ -217,6 +223,7 @@ body {
   .links a#call,
   .links a#whatsapp,
   .links a#mail,
+  .links a#info-mail,
   .links button {
     font-size: 13px;       /* slightly smaller on phones */
        white-space: normal;     /* يسمح بالنزول لسطر جديد */
@@ -272,6 +279,9 @@ body {
     <i class="fas fa-envelope"></i> taqi@alnakhuda.net
   </a>
       
+      <a id="info-mail" target="_blank">
+    <i class="fas fa-envelope"></i> info@alnakhuda.com
+  </a>
       
       <a id="maps" target="_blank">
         <i class="fas fa-map-marker-alt"></i> Hidd, Muharraq Governorate, Bahrain
@@ -304,6 +314,7 @@ body {
         phone2: "+97333134145",
         mapsUrl: "https://maps.app.goo.gl/Ho47xQraBpJeNtzP7",
         email: "taqi@alnakhuda.net",
+        email2: "info@alnakhuda.com",
         url: "www.alnakhuda.com"
       }
     };
@@ -312,6 +323,7 @@ body {
     document.getElementById('role').textContent = SETTINGS.role;
     document.getElementById('bio').textContent = SETTINGS.bio;
     document.getElementById('mail').href = `mailto:${SETTINGS.vcf.email}`;
+    document.getElementById('info-mail').href = `mailto:${SETTINGS.vcf.email2}`;
     document.getElementById('whatsapp').href =
       `https://wa.me/${SETTINGS.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(SETTINGS.whatsappMessage)}`;
     document.getElementById('call').href = `tel:${SETTINGS.phone}`;
@@ -326,7 +338,7 @@ body {
       const firstName = nameParts.slice(0, -1).join(" ") || v.fullName; // all except last
       const lastName = nameParts.slice(-1).join(""); // last word
 
-      // Build vCard with both phone numbers
+      // Build vCard with both phone numbers and both email addresses
       const vcard = [
         'BEGIN:VCARD',
         'VERSION:3.0',
@@ -337,6 +349,7 @@ body {
         `TEL;TYPE=CELL,VOICE:${v.phone}`,
         `TEL;TYPE=CELL,VOICE:${v.phone2}`,
         `EMAIL;TYPE=INTERNET:${v.email}`,
+        `EMAIL;TYPE=INTERNET:${v.email2}`,
         `URL:${v.url}`,
         'END:VCARD'
       ].join('\n');
