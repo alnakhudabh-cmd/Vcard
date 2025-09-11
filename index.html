@@ -291,18 +291,17 @@ body {
       role: "General Manager",
       bio: "Go for Quality – We Take Care of the Rest!",
       phone: "+97337137007",
-phone: "+97333134145",
+      phone2: "+97333134145",
       whatsappNumber: "+97337137007",
       whatsappMessage: "Hello",
       mapsUrl: "https://maps.app.goo.gl/Ho47xQraBpJeNtzP7",
       siteUrl: "https://www.alnakhuda.com",
       vcf: {
-        
         fullName: "Taqi AlSharifi",
         org: "ALNAKHUDA LOGISTICS SERVICES",
         title: "General Manager",
-        phone: "+97333134145",
-        phone: "+97337907007",
+        phone: "+97337137007",
+        phone2: "+97333134145",
         mapsUrl: "https://maps.app.goo.gl/Ho47xQraBpJeNtzP7",
         email: "taqi@alnakhuda.net",
         url: "www.alnakhuda.com"
@@ -312,7 +311,7 @@ phone: "+97333134145",
     document.getElementById('name').textContent = SETTINGS.name;
     document.getElementById('role').textContent = SETTINGS.role;
     document.getElementById('bio').textContent = SETTINGS.bio;
-document.getElementById('mail').href = `mailto:${SETTINGS.vcf.email}`;
+    document.getElementById('mail').href = `mailto:${SETTINGS.vcf.email}`;
     document.getElementById('whatsapp').href =
       `https://wa.me/${SETTINGS.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(SETTINGS.whatsappMessage)}`;
     document.getElementById('call').href = `tel:${SETTINGS.phone}`;
@@ -322,24 +321,26 @@ document.getElementById('mail').href = `mailto:${SETTINGS.vcf.email}`;
     document.getElementById('saveContact').addEventListener('click', () => {
       const v = SETTINGS.vcf;
 
-// Split full name into first and last
-const nameParts = v.fullName.trim().split(" ");
-const firstName = nameParts.slice(0, -1).join(" ") || v.fullName; // all except last
-const lastName = nameParts.slice(-1).join(""); // last word
+      // Split full name into first and last
+      const nameParts = v.fullName.trim().split(" ");
+      const firstName = nameParts.slice(0, -1).join(" ") || v.fullName; // all except last
+      const lastName = nameParts.slice(-1).join(""); // last word
 
-// Build vCard
-const vcard = [
-  'BEGIN:VCARD',
-  'VERSION:3.0',
-  `N:${lastName};${firstName};;;`,   // Last;First;;;
-  `FN:${v.fullName}`,                // Full name
-  `ORG:${v.org}`,
-  `TITLE:${v.title}`,
-  `TEL;TYPE=CELL:${v.phone}`,
-  `EMAIL;TYPE=INTERNET:${v.email}`,
-  `URL:${v.url}`,
-  'END:VCARD'
-].join('\n');
+      // Build vCard with both phone numbers
+      const vcard = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        `N:${lastName};${firstName};;;`,   // Last;First;;;
+        `FN:${v.fullName}`,                // Full name
+        `ORG:${v.org}`,
+        `TITLE:${v.title}`,
+        `TEL;TYPE=CELL,VOICE:${v.phone}`,
+        `TEL;TYPE=CELL,VOICE:${v.phone2}`,
+        `EMAIL;TYPE=INTERNET:${v.email}`,
+        `URL:${v.url}`,
+        'END:VCARD'
+      ].join('\n');
+      
       const blob = new Blob([vcard], { type: 'text/vcard' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
