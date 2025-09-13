@@ -327,6 +327,7 @@ body {
     document.getElementById('whatsapp').href =
       `https://wa.me/${SETTINGS.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(SETTINGS.whatsappMessage)}`;
     document.getElementById('call').href = `tel:${SETTINGS.phone}`;
+     document.getElementById('call').href = `tel:${SETTINGS.phone2}`;
     document.getElementById('maps').href = SETTINGS.mapsUrl;
     document.getElementById('site').href = SETTINGS.siteUrl;
 
